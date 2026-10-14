@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Send, Phone, CheckCircle2, Truck, MapPin, Calendar, Package } from 'lucide-react';
 import { COMPANY_DETAILS } from '../data/company';
+import { IMAGES } from '../assets/images';
 
 interface TransportInquiryModalProps {
   isOpen: boolean;
@@ -13,7 +14,7 @@ export const TransportInquiryModal: React.FC<TransportInquiryModalProps> = ({
   onClose,
   preselectedService,
 }) => {
-  const [cargoType, setCargoType] = useState(preselectedService || 'General Commercial Goods');
+  const [cargoType, setCargoType] = useState(preselectedService || 'Sand, Bajri & Gravel Hauling');
   const [pickupCity, setPickupCity] = useState('');
   const [dropoffCity, setDropoffCity] = useState('');
   const [preferredDate, setPreferredDate] = useState('');
@@ -29,24 +30,22 @@ export const TransportInquiryModal: React.FC<TransportInquiryModalProps> = ({
     e.preventDefault();
 
     const textLines = [
-      `*Transport Inquiry — Bukhari Goods & Transport*`,
+      `*Tractor Trolley Inquiry — Bukhari Goods & Transport*`,
       customerName ? `*Customer:* ${customerName}` : null,
       customerPhone ? `*Phone:* ${customerPhone}` : null,
-      `*Service / Cargo:* ${cargoType}`,
-      pickupCity ? `*Pickup Location:* ${pickupCity}` : null,
-      dropoffCity ? `*Destination:* ${dropoffCity}` : null,
-      preferredDate ? `*Preferred Date:* ${preferredDate}` : null,
-      cargoWeight ? `*Estimated Weight / Volume:* ${cargoWeight}` : null,
+      `*Material / Service:* ${cargoType}`,
+      pickupCity ? `*Loading Point:* ${pickupCity}` : null,
+      dropoffCity ? `*Unloading Site:* ${dropoffCity}` : null,
+      preferredDate ? `*Preferred Schedule:* ${preferredDate}` : null,
+      cargoWeight ? `*Estimated Trips / Volume:* ${cargoWeight}` : null,
       additionalNotes ? `*Notes:* ${additionalNotes}` : null,
     ].filter(Boolean);
 
     const message = encodeURIComponent(textLines.join('\n'));
     const url = `https://wa.me/923413467752?text=${message}`;
 
-    // Mark as submitted
     setSubmitted(true);
 
-    // Open WhatsApp in a clean window / tab
     setTimeout(() => {
       window.open(url, '_blank', 'noopener,noreferrer');
     }, 400);
@@ -62,20 +61,26 @@ export const TransportInquiryModal: React.FC<TransportInquiryModalProps> = ({
       role="dialog"
       aria-modal="true"
       aria-labelledby="inquiry-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200"
     >
       <div 
         className="relative w-full max-w-xl bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
+        {/* Header with Owner mini avatar */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-900/90">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
-              <Truck className="w-5 h-5" />
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-amber-400 shrink-0">
+              <img
+                src={IMAGES.owner}
+                alt="Pir Rehan Shah"
+                className="w-full h-full object-cover"
+                loading="eager"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <div>
-              <h3 id="inquiry-modal-title" className="text-lg font-bold text-white tracking-tight">Request Transport Quote</h3>
+              <h3 id="inquiry-modal-title" className="text-lg font-bold text-white tracking-tight">Request Tractor Trolley Quote</h3>
               <p className="text-xs text-slate-400">Direct coordination with Pir Rehan Shah</p>
             </div>
           </div>
@@ -95,9 +100,9 @@ export const TransportInquiryModal: React.FC<TransportInquiryModalProps> = ({
               <div className="w-16 h-16 mx-auto rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h4 className="text-xl font-bold text-white">Inquiry Prepared!</h4>
+              <h4 className="text-xl font-bold text-white">Trolley Inquiry Prepared!</h4>
               <p className="text-sm text-slate-300 max-w-md mx-auto">
-                Your transport details have been formatted and WhatsApp is opening now. You can also call Pir Rehan Shah directly.
+                Your tractor trolley request has been formatted and WhatsApp is opening now. You can also dial Pir Rehan Shah directly.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
                 <a
@@ -122,12 +127,12 @@ export const TransportInquiryModal: React.FC<TransportInquiryModalProps> = ({
                 <div>
                   <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                    Pickup City / Location *
+                    Loading Site / Location *
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g., Karachi Port, Lahore, etc."
+                    placeholder="e.g., Quarry, Riverbed, Farm, City"
                     value={pickupCity}
                     onChange={(e) => setPickupCity(e.target.value)}
                     className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
@@ -137,12 +142,12 @@ export const TransportInquiryModal: React.FC<TransportInquiryModalProps> = ({
                 <div>
                   <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                    Destination City *
+                    Unloading Destination / Plot *
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g., Islamabad, Faisalabad, etc."
+                    placeholder="e.g., Construction Plot, Mandi, Facility"
                     value={dropoffCity}
                     onChange={(e) => setDropoffCity(e.target.value)}
                     className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
@@ -154,20 +159,19 @@ export const TransportInquiryModal: React.FC<TransportInquiryModalProps> = ({
                 <div>
                   <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
                     <Package className="w-3.5 h-3.5 text-amber-400" />
-                    Cargo / Service Type *
+                    Cargo / Trolley Service *
                   </label>
                   <select
                     value={cargoType}
                     onChange={(e) => setCargoType(e.target.value)}
                     className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700/80 rounded-xl text-white text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
                   >
-                    <option value="Tractor-Trailer Transportation">Tractor-Trailer Transportation</option>
-                    <option value="Goods Transportation">Goods Transportation</option>
-                    <option value="Heavy Cargo Transport">Heavy Cargo Transport</option>
-                    <option value="Commercial Freight Services">Commercial Freight Services</option>
-                    <option value="Long-Distance Transportation">Long-Distance Transportation</option>
-                    <option value="Business Transport Solutions">Business Transport Solutions</option>
-                    <option value="General Commercial Goods">General Commercial Goods</option>
+                    <option value="Sand, Bajri & Gravel Hauling">Sand, Bajri &amp; Gravel Hauling</option>
+                    <option value="Agricultural Crops & Wheat Straw (Toori/Bhusa)">Agricultural Straw (Toori / Bhusa) &amp; Crops</option>
+                    <option value="Stone, Boulders & Quarry Transport">Stone, Boulders &amp; Quarry Transport</option>
+                    <option value="Bricks & Building Material Delivery">Bricks (Eent) &amp; Building Supplies</option>
+                    <option value="Plot Filling & Earthwork (Mitti Bharai)">Plot Foundation Filling (Mitti Bharai)</option>
+                    <option value="Commercial Goods & General Freight">Commercial Goods &amp; General Freight</option>
                   </select>
                 </div>
 
@@ -178,7 +182,7 @@ export const TransportInquiryModal: React.FC<TransportInquiryModalProps> = ({
                   </label>
                   <input
                     type="text"
-                    placeholder="e.g., Immediate / Specific Date"
+                    placeholder="e.g., Immediate / Tomorrow"
                     value={preferredDate}
                     onChange={(e) => setPreferredDate(e.target.value)}
                     className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
@@ -189,12 +193,12 @@ export const TransportInquiryModal: React.FC<TransportInquiryModalProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                    Your Name / Business Name *
+                    Your Name / Contractor Name *
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="Your name or company"
+                    placeholder="Your name or business"
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
                     className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
@@ -218,11 +222,11 @@ export const TransportInquiryModal: React.FC<TransportInquiryModalProps> = ({
 
               <div>
                 <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                  Cargo Description & Specific Requirements
+                  Trolley Count or Specific Material Details
                 </label>
                 <textarea
                   rows={2}
-                  placeholder="Details regarding cargo weight, dimensions, loading schedule, etc."
+                  placeholder="Number of trolleys/trips needed, site access condition, or special instructions."
                   value={additionalNotes}
                   onChange={(e) => setAdditionalNotes(e.target.value)}
                   className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors resize-none"
@@ -232,7 +236,7 @@ export const TransportInquiryModal: React.FC<TransportInquiryModalProps> = ({
               <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
                 <button
                   type="submit"
-                  className="w-full sm:flex-1 py-3 px-5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 active:scale-[0.99]"
+                  className="w-full sm:flex-1 py-3 px-5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 active:scale-[0.99]"
                 >
                   <Send className="w-4 h-4" />
                   Send Inquiry via WhatsApp

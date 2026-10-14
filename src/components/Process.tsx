@@ -11,30 +11,30 @@ export const Process: React.FC<ProcessProps> = ({ onRequestQuote }) => {
     {
       num: '01',
       title: 'Contact Us',
-      desc: 'Call or message Bukhari Goods and Transport Company about your transportation requirements.',
+      desc: 'Call or WhatsApp Bukhari Goods and Transport Company about your haulage requirements.',
       icon: PhoneCall,
       actionText: 'Direct Call or WhatsApp',
     },
     {
       num: '02',
-      title: 'Share Cargo Details',
-      desc: 'Provide details regarding cargo type, estimated volume, pickup point, destination, and schedule.',
+      title: 'Share Material Details',
+      desc: 'Specify material type (sand, bricks, toori, stone, or goods), loading point, site destination, and schedule.',
       icon: FileText,
-      actionText: 'Route & Goods Specs',
+      actionText: 'Route & Volume Specs',
     },
     {
       num: '03',
-      title: 'Discuss Arrangements',
-      desc: 'Confirm vehicle suitability, trailer availability, transport cost, and terms directly with Pir Rehan Shah.',
+      title: 'Discuss Trolley Arrangements',
+      desc: 'Confirm trolley count, dumper/cage suitability, trip pricing, and schedule directly with Pir Rehan Shah.',
       icon: CheckCircle2,
       actionText: 'Transparent Agreement',
     },
     {
       num: '04',
-      title: 'Coordinate Transportation',
-      desc: 'Proceed with scheduled vehicle positioning, safe loading, and dedicated transport to destination.',
+      title: 'Dispatch & Delivery',
+      desc: 'Proceed with prompt tractor trolley positioning, safe loading, and dedicated transport to your location.',
       icon: Truck,
-      actionText: 'Safe Cargo Dispatch',
+      actionText: 'Safe Site Delivery',
     },
   ];
 
@@ -50,10 +50,10 @@ export const Process: React.FC<ProcessProps> = ({ onRequestQuote }) => {
             <span className="text-slate-400">Step-by-Step Flow</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            How to Inquire About Transportation
+            How to Book a Tractor Trolley
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-400 leading-relaxed text-balance">
-            We keep the transportation inquiry process straightforward and transparent, giving you rapid confirmation and dependable service.
+            We keep the tractor trolley booking process straightforward and transparent, giving you rapid dispatch and dependable site delivery.
           </p>
         </div>
 

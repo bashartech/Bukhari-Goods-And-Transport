@@ -10,11 +10,11 @@ interface BannerProps {
 export const Banner: React.FC<BannerProps> = ({ onRequestQuote }) => {
   return (
     <section className="relative py-24 overflow-hidden bg-slate-950 border-t border-slate-900">
-      {/* Background Cinematic Truck Road View */}
+      {/* Background Cinematic Tractor Trolley Road View */}
       <div className="absolute inset-0 z-0">
         <img
-          src={IMAGES.bannerTruckRoad}
-          alt="Panoramic highway freight truck moving at dusk"
+          src={IMAGES.bannerTractorTrolley}
+          alt="Panoramic view of red tractor trolley transport on highway at sunset"
           className="w-full h-full object-cover object-center"
           loading="lazy"
           referrerPolicy="no-referrer"
@@ -28,9 +28,9 @@ export const Banner: React.FC<BannerProps> = ({ onRequestQuote }) => {
         <div className="max-w-3xl">
           {/* Subtle unboxed label */}
           <div className="text-xs sm:text-sm font-semibold tracking-wider text-amber-400 uppercase mb-3 flex items-center gap-2">
-            <span>Reliable Freight Partner</span>
+            <span>Tractor Trolley Goods Logistics</span>
             <span aria-hidden="true" className="text-slate-600">·</span>
-            <span className="text-slate-300">Nationwide Coordination</span>
+            <span className="text-slate-300">Construction &amp; Commercial</span>
           </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
@@ -41,7 +41,7 @@ export const Banner: React.FC<BannerProps> = ({ onRequestQuote }) => {
           </h2>
 
           <p className="text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed mb-8 max-w-2xl">
-            Looking for dependable transportation for your business goods? Get in touch with Bukhari Goods and Transport Company to discuss your vehicle requirements and schedule.
+            Looking for dependable tractor trolley transportation for sand, bricks, boulders, agricultural straw, or business cargo? Contact Bukhari Goods and Transport Company to arrange prompt vehicle dispatch.
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
@@ -67,16 +67,25 @@ export const Banner: React.FC<BannerProps> = ({ onRequestQuote }) => {
               onClick={onRequestQuote}
               className="inline-flex items-center gap-2 px-5 py-3.5 bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white font-medium text-sm sm:text-base rounded-xl transition-all border border-slate-700/80"
             >
-              <span>Request Quote</span>
+              <span>Book Trolley</span>
               <ArrowRight className="w-4 h-4 text-amber-400" />
             </button>
           </div>
 
-          {/* Direct proprietor indicator */}
+          {/* Direct proprietor indicator with owner small avatar */}
           <div className="mt-8 pt-6 border-t border-slate-800/80 flex items-center gap-3 text-xs text-slate-400">
+            <div className="w-7 h-7 rounded-full overflow-hidden border border-amber-400 shrink-0">
+              <img
+                src={IMAGES.owner}
+                alt="Pir Rehan Shah"
+                className="w-full h-full object-cover"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+            </div>
             <span>Proprietor: <strong className="text-white">{COMPANY_DETAILS.proprietor}</strong></span>
             <span aria-hidden="true" className="text-slate-600">·</span>
-            <span>Direct Commercial Transport Coordination</span>
+            <span>Commercial Tractor Trolley Hauling</span>
           </div>
         </div>
       </div>

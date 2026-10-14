@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Truck, Package, Layers, ShieldCheck, Compass, Briefcase } from 'lucide-react';
+import { ArrowRight, Truck, Layers, Mountain, Building2, Shovel, Wheat } from 'lucide-react';
 import { IMAGES } from '../assets/images';
 
 interface ServicesProps {
@@ -10,57 +10,57 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
   const services = [
     {
       id: '01',
-      title: 'Tractor-Trailer Transportation',
-      image: IMAGES.serviceTractorTrailer,
-      icon: Truck,
+      title: 'Sand, Bajri & Gravel Hauling',
+      image: IMAGES.trolleyConstructionSand,
+      icon: Shovel,
       description:
-        'Transportation of suitable commercial cargo using heavy-duty tractor-trailer vehicles designed for stable and high-capacity hauls.',
-      highlights: ['High-capacity loads', 'Secure vehicle coupling', 'Long-haul capability'],
+        'Bulk transportation of river sand, construction bajri (crushed stone), gravel, and base materials loaded directly from excavation sites to your building location.',
+      highlights: ['Excavator & quarry loading', 'Even site dumping', 'High-volume dumper trolleys'],
     },
     {
       id: '02',
-      title: 'Goods Transportation',
-      image: IMAGES.bannerTruckRoad,
-      icon: Package,
+      title: 'Agricultural Crops & Wheat Straw (Toori/Bhusa)',
+      image: IMAGES.trolleyAgriculturalBhusa,
+      icon: Wheat,
       description:
-        'Moving business goods and commercial materials reliably between pickup and delivery locations with verified schedule coordination.',
-      highlights: ['Commercial materials', 'Inter-city routes', 'Careful goods handling'],
+        'High-volume haulage of wheat straw (toori / bhusa), sugarcane, grain bags, cotton, and harvested agricultural produce between farms, mandis, and storage depots.',
+      highlights: ['High-stacked secure netting', 'Farm-to-market dispatch', 'Protected transit'],
     },
     {
       id: '03',
-      title: 'Heavy Cargo Transport',
-      image: IMAGES.serviceHeavyCargo,
-      icon: Layers,
+      title: 'Stone, Boulders & Quarry Transport',
+      image: IMAGES.trolleyRockQuarry,
+      icon: Mountain,
       description:
-        'Transportation solutions for heavy or large cargo when the appropriate vehicle, flatbed, and strapping arrangements are available.',
-      highlights: ['Industrial machinery', 'Secured lashing & strapping', 'Proper weight distribution'],
+        'Heavy-duty tractor trolley transport for large rock boulders, quarry stones, hill stones, and heavy mineral aggregate across rugged terrain and highway routes.',
+      highlights: ['Reinforced steel bodies', 'Rough terrain capability', 'Heavy payload capacity'],
     },
     {
       id: '04',
-      title: 'Commercial Freight Services',
-      image: IMAGES.serviceFreightTerminal,
-      icon: ShieldCheck,
+      title: 'Bricks & Building Material Delivery',
+      image: IMAGES.trolleyBricksBuilding,
+      icon: Building2,
       description:
-        'Transport support for businesses, suppliers, distributors, and other commercial customers requiring dependable logistics.',
-      highlights: ['Terminal coordination', 'Supplier transport', 'Clear shipment oversight'],
+        'Reliable transport of red clay bricks (eent), cement blocks, precast slabs, and building supplies directly from kilns (bhattas) to development projects.',
+      highlights: ['Careful stacking & transit', 'Kiln to site delivery', 'Prompt unloading support'],
     },
     {
       id: '05',
-      title: 'Long-Distance Transportation',
-      image: IMAGES.heroTruck,
-      icon: Compass,
+      title: 'Plot Filling & Earthwork (Mitti Bharai)',
+      image: IMAGES.heroTractorTrolley,
+      icon: Layers,
       description:
-        'Transportation arrangements for goods moving across provincial highways between cities or other agreed nationwide destinations.',
-      highlights: ['Inter-provincial routes', 'Highway freight transit', 'Scheduled checkpoints'],
+        'Excavated soil transport, plot foundation filling (mitti bharai), land leveling support, and removal of construction rubble and earth debris.',
+      highlights: ['Plot foundation filling', 'Continuous trip coordination', 'Direct site dumping'],
     },
     {
       id: '06',
-      title: 'Business Transport Solutions',
-      image: IMAGES.serviceCommercialFleet,
-      icon: Briefcase,
+      title: 'Commercial Goods & General Freight',
+      image: IMAGES.bannerTractorTrolley,
+      icon: Truck,
       description:
-        'Transport services tailored to the requirements, cargo type, and schedule of business customers seeking consistent long-term partnerships.',
-      highlights: ['Tailored transport plans', 'Direct owner communication', 'Dedicated capacity'],
+        'Tractor trolley transportation for wholesale goods, machinery, commercial hardware, timber, and rural/urban freight requirements tailored to business clients.',
+      highlights: ['Custom route planning', 'Direct proprietor pricing', 'Flexible haul schedules'],
     },
   ];
 
@@ -74,26 +74,26 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
           <div className="text-xs sm:text-sm font-semibold tracking-wider text-amber-400 uppercase mb-3 flex items-center gap-2">
-            <span>Capabilities &amp; Fleet Logistics</span>
+            <span>Tractor Trolley Fleet &amp; Capabilities</span>
             <span aria-hidden="true" className="text-slate-600">·</span>
-            <span className="text-slate-400">Tailored Arrangements</span>
+            <span className="text-slate-400">Construction &amp; Agriculture</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Comprehensive Transportation Services
+            Specialized Tractor Trolley Services
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-400 leading-relaxed">
-            Professional goods and tractor-trailer transportation tailored to business requirements. Discuss your cargo specifications directly with Pir Rehan Shah for appropriate scheduling and vehicle arrangements.
+            From bulk construction sand and bricks to high-volume agricultural wheat straw (toori/bhusa) and quarry boulders, Bukhari Goods and Transport Company provides powerful tractor trolley logistics.
           </p>
         </div>
 
-        {/* Services Bento Grid */}
+        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service) => {
             const Icon = service.icon;
             return (
               <div
                 key={service.id}
-                className="group relative rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 transition-all duration-300 flex flex-col overflow-hidden hover:shadow-xl hover:shadow-black/50"
+                className="group relative rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 transition-all duration-300 flex flex-col overflow-hidden hover:shadow-2xl hover:shadow-black/60"
               >
                 {/* Image Container with subtle zoom */}
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
@@ -107,7 +107,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/30 to-transparent" />
                   
                   {/* Clean unboxed editorial number */}
-                  <span className="absolute top-4 right-4 text-xs font-mono font-bold text-amber-400 bg-slate-950/70 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/10">
+                  <span className="absolute top-4 right-4 text-xs font-mono font-bold text-amber-400 bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/10">
                     {service.id}
                   </span>
                 </div>

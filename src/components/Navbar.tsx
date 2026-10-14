@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Truck, Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { COMPANY_DETAILS } from '../data/company';
+import { Logo } from './Logo';
 
 interface NavbarProps {
   onRequestQuote: () => void;
@@ -20,7 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote }) => {
 
   const navLinks = [
     { label: 'Home', href: '#home' },
-    { label: 'Transportation Services', href: '#services' },
+    { label: 'Trolley Services', href: '#services' },
     { label: 'About Us', href: '#about' },
     { label: 'Why Choose Us', href: '#why-us' },
     { label: 'Contact', href: '#contact' },
@@ -30,23 +31,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'glass-nav shadow-lg py-3'
-          : 'bg-gradient-to-b from-slate-950/90 via-slate-950/60 to-transparent py-4'
+          ? 'glass-nav shadow-xl py-2.5'
+          : 'bg-gradient-to-b from-slate-950/95 via-slate-950/70 to-transparent py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-6 md:gap-8">
-          {/* Zone 1: Single text wordmark with truck emblem */}
+          {/* Zone 1: Brand Wordmark with Owner Image integrated in logo emblem */}
           <a
             href="#home"
-            className="flex items-center gap-2.5 text-white hover:text-amber-400 transition-colors whitespace-nowrap shrink-0 group"
+            className="hover:opacity-95 transition-opacity whitespace-nowrap shrink-0"
           >
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform">
-              <Truck className="w-5 h-5 stroke-[2.2]" />
-            </div>
-            <span className="font-extrabold text-lg sm:text-xl tracking-tight text-white group-hover:text-amber-300 transition-colors">
-              Bukhari Goods &amp; Transport
-            </span>
+            <Logo size="md" />
           </a>
 
           {/* Zone 2: Navigation Links (single-line, clean hover underline) */}
@@ -63,10 +59,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote }) => {
           </nav>
 
           {/* Zone 3: Direct Phone + Primary CTA */}
-          <div className="hidden sm:flex items-center gap-4 shrink-0">
+          <div className="hidden sm:flex items-center gap-3.5 shrink-0">
             <a
               href={COMPANY_DETAILS.phoneDialUrl}
-              className="flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white transition-colors py-1.5 px-3 rounded-lg bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 whitespace-nowrap"
+              className="flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white transition-colors py-1.5 px-3 rounded-lg bg-slate-800/80 hover:bg-slate-800 border border-slate-700/60 whitespace-nowrap"
             >
               <Phone className="w-3.5 h-3.5 text-amber-400" />
               <span>{COMPANY_DETAILS.phone}</span>
@@ -76,7 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote }) => {
               onClick={onRequestQuote}
               className="px-4 py-2 text-xs sm:text-sm font-bold text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-lg shadow-md shadow-amber-400/20 transition-all hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
             >
-              Request Transport
+              Request Trolley
             </button>
           </div>
 
@@ -102,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote }) => {
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="sm:hidden mt-3 pt-3 pb-4 border-t border-slate-800/90 bg-slate-950/95 backdrop-blur-xl rounded-xl px-4 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="sm:hidden mt-3 pt-3 pb-4 border-t border-slate-800/90 bg-slate-950/98 backdrop-blur-2xl rounded-xl px-4 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200 shadow-2xl">
             <div className="flex flex-col space-y-2">
               {navLinks.map((link) => (
                 <a
@@ -124,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote }) => {
                 }}
                 className="w-full py-2.5 px-4 text-center text-sm font-bold text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-lg shadow-sm"
               >
-                Request Transport
+                Request Trolley Quote
               </button>
               <a
                 href={COMPANY_DETAILS.phoneDialUrl}

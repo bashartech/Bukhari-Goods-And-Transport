@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Phone, MessageSquare, Copy, Check, User, MapPin, ShieldCheck, Send } from 'lucide-react';
+import { Phone, MessageSquare, Copy, Check, ShieldCheck, Send, MapPin, Truck } from 'lucide-react';
 import { COMPANY_DETAILS } from '../data/company';
+import { IMAGES } from '../assets/images';
 
 export const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -18,10 +19,10 @@ export const Contact: React.FC = () => {
   const handleQuickInquiry = (e: React.FormEvent) => {
     e.preventDefault();
     const parts = [
-      `*Transport Inquiry — Bukhari Goods and Transport Company*`,
-      quickPickup ? `*Pickup Location:* ${quickPickup}` : null,
-      quickDropoff ? `*Destination:* ${quickDropoff}` : null,
-      quickCargo ? `*Cargo Details:* ${quickCargo}` : null,
+      `*Tractor Trolley Booking — Bukhari Goods and Transport Company*`,
+      quickPickup ? `*Loading Point:* ${quickPickup}` : null,
+      quickDropoff ? `*Unloading Site:* ${quickDropoff}` : null,
+      quickCargo ? `*Material / Trolleys Required:* ${quickCargo}` : null,
     ].filter(Boolean);
 
     const message = encodeURIComponent(parts.join('\n'));
@@ -44,10 +45,10 @@ export const Contact: React.FC = () => {
             <span className="text-slate-400">Owner-Direct Service</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Contact Bukhari Goods &amp; Transport
+            Book Tractor Trolley Transport
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-400 leading-relaxed">
-            Reach out directly to discuss cargo requirements, trailer suitability, rates, and schedule arrangements.
+            Reach out directly to Pir Rehan Shah to discuss tractor trolley availability, trip rates, sand/material loading, and scheduling.
           </p>
         </div>
 
@@ -99,21 +100,28 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Proprietor & Company Profile */}
-            <div className="rounded-2xl p-6 bg-slate-900/70 border border-slate-800 space-y-4">
-              <div className="flex items-center gap-3.5">
-                <div className="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-amber-400">
-                  <User className="w-5 h-5" />
+            {/* Proprietor Card with Photo */}
+            <div className="rounded-2xl p-6 bg-slate-900/80 border border-slate-800 shadow-lg">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-amber-400 shadow-md shadow-amber-500/20 shrink-0">
+                  <img
+                    src={IMAGES.owner}
+                    alt="Pir Rehan Shah"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-400 font-semibold uppercase">Proprietor</div>
-                  <div className="text-lg font-bold text-white">{COMPANY_DETAILS.proprietor}</div>
+                  <div className="text-xs text-amber-400 font-bold uppercase tracking-wider">Proprietor &amp; Fleet Lead</div>
+                  <div className="text-xl font-extrabold text-white">{COMPANY_DETAILS.proprietor}</div>
+                  <div className="text-xs text-slate-400 font-mono mt-0.5">{COMPANY_DETAILS.phone}</div>
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-slate-800/80 flex items-center gap-3 text-xs text-slate-300">
+              <div className="pt-3 border-t border-slate-800/80 flex items-center gap-2.5 text-xs text-slate-300">
                 <ShieldCheck className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Dedicated to cargo safety, professional service, and reliable transport arrangements.</span>
+                <span>Direct accountability for every tractor trolley dispatch and safe cargo arrival.</span>
               </div>
             </div>
           </div>
@@ -121,9 +129,9 @@ export const Contact: React.FC = () => {
           {/* Right Column: Direct Quick Inquiry Card */}
           <div className="lg:col-span-6 rounded-2xl p-6 sm:p-8 bg-slate-900 border border-slate-800 shadow-xl">
             <div className="mb-6">
-              <h3 className="text-xl font-bold text-white mb-1">Direct Cargo Inquiry</h3>
+              <h3 className="text-xl font-bold text-white mb-1">Quick Trolley Inquiry</h3>
               <p className="text-xs sm:text-sm text-slate-400">
-                Send your route and goods details directly to Pir Rehan Shah on WhatsApp for an immediate response.
+                Send your material requirements, loading point, and destination directly to Pir Rehan Shah on WhatsApp.
               </p>
             </div>
 
@@ -134,7 +142,7 @@ export const Contact: React.FC = () => {
                 </div>
                 <h4 className="text-base font-bold text-white">Opening WhatsApp...</h4>
                 <p className="text-xs text-slate-400">
-                  Your inquiry message has been prepared for transmission.
+                  Your tractor trolley inquiry is ready and sending.
                 </p>
                 <button
                   type="button"
@@ -149,12 +157,12 @@ export const Contact: React.FC = () => {
                 <div>
                   <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                    Pickup City / Location
+                    Loading Site / Location
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g., Karachi, Lahore, Faisalabad, etc."
+                    placeholder="e.g., Quarry, Riverbed, Brick Kiln, Farm"
                     value={quickPickup}
                     onChange={(e) => setQuickPickup(e.target.value)}
                     className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400 transition-colors"
@@ -164,12 +172,12 @@ export const Contact: React.FC = () => {
                 <div>
                   <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                    Destination City / Facility
+                    Delivery Destination / Plot
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g., Rawalpindi, Peshawar, Multan, etc."
+                    placeholder="e.g., Construction Site, Storage, Commercial Plot"
                     value={quickDropoff}
                     onChange={(e) => setQuickDropoff(e.target.value)}
                     className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400 transition-colors"
@@ -177,13 +185,14 @@ export const Contact: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                    Cargo / Goods Description
+                  <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
+                    <Truck className="w-3.5 h-3.5 text-amber-400" />
+                    Material / Trolleys Required
                   </label>
                   <textarea
                     rows={2}
                     required
-                    placeholder="Type of goods, container requirements, approximate weight, etc."
+                    placeholder="e.g., 5 trolleys of river sand, wheat toori haulage, 10,000 bricks, etc."
                     value={quickCargo}
                     onChange={(e) => setQuickCargo(e.target.value)}
                     className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400 transition-colors resize-none"

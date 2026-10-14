@@ -1,6 +1,7 @@
 import React from 'react';
-import { Truck, Phone, MessageSquare, ArrowUp, Shield } from 'lucide-react';
+import { Phone, MessageSquare, ArrowUp, Shield } from 'lucide-react';
 import { COMPANY_DETAILS } from '../data/company';
+import { Logo } from './Logo';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -14,24 +15,17 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-slate-900">
           
-          {/* Brand & Overview */}
+          {/* Brand & Overview with Logo incorporating owner's picture */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="flex items-center gap-2.5 text-white">
-              <div className="w-8 h-8 rounded-lg bg-amber-400 flex items-center justify-center text-slate-950">
-                <Truck className="w-5 h-5" />
-              </div>
-              <span className="font-extrabold text-lg text-white">
-                {COMPANY_DETAILS.name}
-              </span>
-            </div>
+            <Logo size="lg" />
 
-            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
-              Dependable tractor-trailer transportation and goods freight services. Dedicated to cargo safety, direct owner communication, and reliable transport arrangements.
+            <p className="text-sm text-slate-400 leading-relaxed max-w-sm pt-2">
+              Dependable tractor trolley transportation for construction materials, river sand, bajri, bricks, agricultural wheat straw (toori/bhusa), quarry boulders, and commercial goods.
             </p>
 
             <div className="pt-2 text-xs text-slate-300">
               <div className="font-semibold text-white">Proprietor: {COMPANY_DETAILS.proprietor}</div>
-              <div className="text-slate-400 mt-0.5">Commercial Goods &amp; Tractor-Trailer Logistics</div>
+              <div className="text-slate-400 mt-0.5">Heavy-Duty Tractor Trolley Logistics</div>
             </div>
           </div>
 
@@ -43,7 +37,7 @@ export const Footer: React.FC = () => {
                 <a href="#home" className="hover:text-amber-400 transition-colors">Home</a>
               </li>
               <li>
-                <a href="#services" className="hover:text-amber-400 transition-colors">Transportation Services</a>
+                <a href="#services" className="hover:text-amber-400 transition-colors">Tractor Trolley Services</a>
               </li>
               <li>
                 <a href="#about" className="hover:text-amber-400 transition-colors">About the Company</a>

@@ -1,15 +1,17 @@
-import heroTruck from './images/hero_truck_highway_1791988031294.jpg';
-import serviceTractorTrailer from './images/service_tractor_trailer_1791988033308.jpg';
-import serviceHeavyCargo from './images/service_heavy_cargo_1791988033052.jpg';
-import serviceFreightTerminal from './images/service_freight_terminal_1791988033266.jpg';
-import bannerTruckRoad from './images/banner_truck_road_1791988032545.jpg';
-import serviceCommercialFleet from './images/service_commercial_fleet_1791988069602.jpg';
+import ownerPirRehanShah from './images/image.png';
+import heroTractorTrolley from './images/hero_tractor_trolley_1791995845549.jpg';
+import trolleyConstructionSand from './images/trolley_construction_sand_1791995845470.jpg';
+import trolleyAgriculturalBhusa from './images/trolley_agricultural_bhusa_1791995847064.jpg';
+import trolleyRockQuarry from './images/trolley_rock_quarry_1791995846646.jpg';
+import trolleyBricksBuilding from './images/trolley_bricks_building_1791995925458.jpg';
+import bannerTractorTrolley from './images/banner_tractor_trolley_1791995925222.jpg';
 
 export const IMAGES = {
-  heroTruck,
-  serviceTractorTrailer,
-  serviceHeavyCargo,
-  serviceFreightTerminal,
-  bannerTruckRoad,
-  serviceCommercialFleet,
+  owner: ownerPirRehanShah,
+  heroTractorTrolley,
+  trolleyConstructionSand,
+  trolleyAgriculturalBhusa,
+  trolleyRockQuarry,
+  trolleyBricksBuilding,
+  bannerTractorTrolley,
 };
