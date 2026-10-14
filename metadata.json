@@ -1,0 +1,6 @@
+{
+  "name": "Bukhari Goods and Transport Company",
+  "description": "Premium tractor-trailer transportation and goods freight logistics services by Bukhari Goods and Transport Company. Dedicated to cargo safety and reliable transport arrangements.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
